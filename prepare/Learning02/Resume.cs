@@ -3,9 +3,12 @@ public class Resume {
     public string Name { get; set; }
 
     //Initializes the list
+
     public List<Job> Jobs = new List<Job>();
 
-    //public List<Job> Jobs { get; set; }  (Doesn't work)
+    //public List<Job> Jobs { get; set; } = new List<Job>();
+
+    //public List<Job> Jobs { get; set; }  //(Doesn't work)
 
     public Resume() {
 
@@ -15,8 +18,8 @@ public class Resume {
         Console.WriteLine($"Name: {Name}");
         Console.Write("Jobs: ");
         
-        foreach (Job job in Jobs) {
-            job.Display();
+        foreach (Job j in Jobs) {
+            j.Display();
         }
     }
 }

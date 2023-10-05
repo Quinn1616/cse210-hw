@@ -2,16 +2,12 @@
 using System.Data.SqlTypes;
 
 public class Entry {
+    
+    public string EntryDate { get; set; }
 
+    public string Prompt { get; set; }
 
-    private string date { get; set; }
-    private string entry { get; set; }
+    public string UserResponse { get; set; }
 
-    static string writeEntryToJournal(string userInput, string date) {
-        string answerInput = Console.ReadLine();
-
-        return answerInput;
-
-    }
 
 }
