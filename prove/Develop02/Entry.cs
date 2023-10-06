@@ -9,5 +9,4 @@ public class Entry {
 
     public string UserResponse { get; set; }
 
-
 }
