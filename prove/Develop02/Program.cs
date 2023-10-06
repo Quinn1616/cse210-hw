@@ -71,9 +71,29 @@ class Program
             
             //Load the file which imports the entries into a list into the journal class.
             else if (userInput == 3) {
-                Console.WriteLine("What is the filename? ");
+
+                Console.Write("What is the filename? ");
                 string filename = Console.ReadLine();
-                //needs work
+                string[] lines = System.IO.File.ReadAllLines(filename);
+
+                foreach (string line in lines)
+                {
+                    
+                    //Splits the each line in the txt file by " - "
+                    string[] parts = line.Split(" - ");
+                    
+                    //Creates a new entry object for each line
+                    Entry newEntry = new Entry();
+
+                    //Adds date, prompt, and response into the new entry object
+                    newEntry.EntryDate = parts[0];
+                    newEntry.Prompt = parts[1];
+                    newEntry.UserResponse = parts[2];
+
+                    //Adds the new entry object into the Entries list in the Journal Class
+                    journal.Entries.Add(newEntry);
+
+                }
                 
             }
 
@@ -84,7 +104,7 @@ class Program
                 using (StreamWriter outputFile = new StreamWriter(filename)) 
                 {
                     foreach (var journalEntry in journal.Entries) {
-                        outputFile.WriteLine($"{journalEntry.EntryDate} - {journalEntry.Prompt} \n{journalEntry.UserResponse};");
+                        outputFile.WriteLine($"{journalEntry.EntryDate} - {journalEntry.Prompt} - {journalEntry.UserResponse};");
                     }
                 }
 
@@ -107,27 +127,3 @@ class Program
 
     }
 }
-
-
-
-        /*  
-        //create a new entry
-        Entry entry = new Entry();
-
-        //gets date from computer. ToShortDateString converts int type to string
-        entry.EntryDate = DateTime.Now.ToShortDateString();
-        entry.Prompt = randomString; //value of prompt displayed to user
-        //entry.UserResponse = "test response"; //value user entered
-        entry.AddEntryInfo(entry.EntryDate, entry.Prompt, entry.UserResponse);
-        
-
-        //create a new Journal object
-        Journal journal = new Journal();
-        journal.Name = "Quinn Bastian"; //user entered name
-        journal.Entries.Add(entry);
-        //journal.DisplayEntry(entry.EntryDate, entry.Prompt, entry.UserResponse);
-
-        */
-
-
-
