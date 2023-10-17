@@ -57,3 +57,6 @@ public class Reference {
     }
 
 }
+
+//Possibly save entire reference as a string. Just display the reference.
+//Console.WriteLine(${reference.GetReference()});

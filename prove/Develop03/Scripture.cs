@@ -2,7 +2,7 @@ public class Scripture {
     
     private string _reference;
     private string _text;
-    private List<Word> _words = new List<Word>();
+    private List<Word> _verse = new List<Word>();  //list of words - split the verse into reference and text - split the text into word objects by spaces in a readfile function in program.cs
 
     public string GetReference(){
         return _reference;
@@ -29,17 +29,18 @@ public class Scripture {
 
     public void HideWords()
     {
-        break;
+        //needs work
     }
 
     public string GetRenderedText()
     {
-        break;
+        return null;
+        //needs work
     }
 
     public bool IsCompletelyHidden()
     {
-        break;
+        return true;
     }
 
 }

@@ -7,11 +7,11 @@ public class Word {
     {
         return _text;
     }
-    public void SetText(string text)
+    /*public void SetText(string text)
     {
         _text = text;
     }
-
+    */
     public Word(string text)
     {
         _text = text;
@@ -30,20 +30,14 @@ public class Word {
 
     public bool IsHidden()
     {
-        if (_hidden == true)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return _hidden;
     }
 
     public string GetRenderedText()
     {
        if (_hidden == true)
        {
+        //for each letter return "-"
         return "_ _ _";
        }
        
