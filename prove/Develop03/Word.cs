@@ -7,11 +7,7 @@ public class Word {
     {
         return _text;
     }
-    /*public void SetText(string text)
-    {
-        _text = text;
-    }
-    */
+  
     public Word(string text)
     {
         _text = text;
@@ -38,7 +34,7 @@ public class Word {
        if (_hidden == true)
        {
         //for each letter return "-"
-        return "_ _ _";
+        return new string('-', _text.Length);
        }
        
        else
