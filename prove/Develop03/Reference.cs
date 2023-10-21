@@ -12,9 +12,4 @@ public class Reference {
     {
         _reference = reference;
     }
-
-    public Reference()
-    {
-        _reference = "John 11:35";
-    }
 }
