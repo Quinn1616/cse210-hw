@@ -3,7 +3,6 @@ public class Activity
     private string _activityName;
     private string _description;
     private int _activityLength;
-    private bool _continueRunning;
 
     public Activity(string name, string description, int length)
     {
@@ -12,29 +11,73 @@ public class Activity
         _activityLength = length;
     }
 
-    public void DisplayStartingMessage()
-    {
-        Console.WriteLine("test starting message");
-    }
-
     public int GetActivityLength()
     {
         return _activityLength;
     }
 
+    public int DisplayStartingMessage()
+    {
+        Console.Write($"\nWelcome to the {_activityName}.\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
+        _activityLength = Convert.ToInt32(Console.ReadLine());
+        return _activityLength;
+    }
+
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("test ending message");
+        Console.WriteLine($"Well done!!\n");
+        Thread.Sleep(500);
+        Console.WriteLine($"You have completed another {_activityLength} seconds of the {_activityName}.");
+        PauseSpinner();
     }
 
     public void PauseSpinner()
     {
-        Console.WriteLine("Test spinner");
+        int count = 0;
+        while (count != 1)
+        {
+            Console.Write("|");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+
+            Console.Write("/");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+
+            Console.Write("—");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+
+            Console.Write("\\");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+
+            count++;
+        }
+        Console.WriteLine();
     }
 
-    publiv void PauseCountdown()
+    public void PauseCountdown()
     {
-        Console.WriteLine("Test countdown");
+        Console.Write("5");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+
+        Console.Write("4");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+
+        Console.Write("3");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+
+        Console.Write("2");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+
+        Console.Write("1");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
     }
 
 }
