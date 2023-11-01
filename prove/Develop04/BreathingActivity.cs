@@ -16,31 +16,12 @@ public class BreathingActivity : Activity
         while (DateTime.Now < futureTime)
         {
             Console.Write("Breath in...");
-            DisplayBreathingTimer();
+            PauseCountdown();
             Console.WriteLine();
             
             Console.Write("Now Breath out...");
-            DisplayBreathingTimer();
+            PauseCountdown();
             Console.WriteLine("\n");
         }
-    }
-
-    public void DisplayBreathingTimer()
-    {
-        Console.Write("4");
-        Thread.Sleep(1000);
-        Console.Write("\b \b");
-
-        Console.Write("3");
-        Thread.Sleep(1000);
-        Console.Write("\b \b");
-
-        Console.Write("2");
-        Thread.Sleep(1000);
-        Console.Write("\b \b");
-
-        Console.Write("1");
-        Thread.Sleep(1000);
-        Console.Write("\b \b");
     }
 }
