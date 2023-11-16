@@ -1,32 +1,52 @@
 public class ChecklistGoal : Goal
 {
-    public int GoalsCompleted { get; set; }
-    //public int BonusPoints { get; set; }
+    public int GoalsNeeded { get; set; }
+    public int GoalProgress { get; set; }
+    public int BonusPoints { get; set; }
 
     public override string CreateGoal()
     {
+        GoalType = "Checklist Goal";
         Console.Write("What is the name of your goal? ");
-        string goalName = Console.ReadLine();
+        GoalName = Console.ReadLine();
         Console.Write("What is a short description of it? ");
-        string goalDescription = Console.ReadLine();
-        Console.Write("What is the amount of points associated with this goal? ");
-        string goalPoints = Console.ReadLine();
+        GoalDescription = Console.ReadLine();
+        //Console.Write("What is the amount of points associated with this goal? ");
+        //GoalPoints = Convert.ToInt32(Console.ReadLine());
+        GoalPoints = 150;
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-        string bonusTimes = Console.ReadLine();
+        GoalsNeeded = Convert.ToInt32(Console.ReadLine());
         Console.Write("What is the bonus for accomplishing it that many times? ");
-        string bonusPoints = Console.ReadLine();
+        BonusPoints = Convert.ToInt32(Console.ReadLine());
+        GoalProgress = 0;
         
 
-        return $"{goalName} - {goalDescription} - {goalPoints} - {bonusTimes} - {bonusPoints}";
+        return $"{GoalType} - {GoalName} - {GoalDescription} - {GoalPoints} - {BonusPoints} - {GoalProgress} - {GoalsNeeded}";
     }
 
     public override int RecordEvent()
     {
-        return 1;
+        GoalProgress++;
+        int pointsEarned = 150;
+        
+        if (GoalProgress >= GoalsNeeded)
+        {
+            pointsEarned = GoalPoints + BonusPoints;
+            Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+            IsComplete = true;
+        }
+
+        else
+        {
+            pointsEarned = GoalPoints;
+            Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+        }
+
+        return pointsEarned;
     }
 
     public override bool IsGoalComplete()
     {
-        return true;
+        return IsComplete;
     }
 }
