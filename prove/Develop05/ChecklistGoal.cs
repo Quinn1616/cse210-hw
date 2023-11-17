@@ -18,8 +18,6 @@ public class ChecklistGoal : Goal
         Console.Write("What is the bonus for accomplishing it that many times? ");
         BonusPoints = Convert.ToInt32(Console.ReadLine());
         GoalProgress = 0;
-        
-
         return $"{GoalType} - {GoalName} - {GoalDescription} - {GoalPoints} - {BonusPoints} - {GoalProgress} - {GoalsNeeded}";
     }
 

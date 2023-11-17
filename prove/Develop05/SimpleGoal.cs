@@ -10,7 +10,6 @@ public class SimpleGoal : Goal
         Console.Write("What is the amount of points associated with this goal? ");
         GoalPoints = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
-        
         return $"{GoalType} - {GoalName} - {GoalDescription} - {GoalPoints}";
     }
 
