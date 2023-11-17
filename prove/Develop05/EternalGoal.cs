@@ -7,9 +7,8 @@ public class EternalGoal : Goal
         GoalName = Console.ReadLine();
         Console.Write("What is a short description of it? ");
         GoalDescription = Console.ReadLine();
-        //Console.Write("What is the amount of points associated with this goal? ");
-        //GoalPoints = Convert.ToInt32(Console.ReadLine());
-        GoalPoints = 100;
+        Console.Write("What is the amount of points associated with this goal? ");
+        GoalPoints = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
 
         return $"{GoalType} - {GoalName} - {GoalDescription} - {GoalPoints}";
@@ -17,11 +16,9 @@ public class EternalGoal : Goal
 
     public override int RecordEvent()
     {
-        int pointsEarned = 100;
-        Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
-        //TotalPoints += pointsEarned;
+        Console.WriteLine($"Congratulations! You have earned {GoalPoints} points!");
         IsComplete = true;
-        return pointsEarned;
+        return GoalPoints;
     }
 
     public override bool IsGoalComplete()

@@ -6,9 +6,7 @@ class Program
     static void Main(string[] args)
     {       
         List<Goal> goalsList = new List<Goal>();
-        Goal newGoal = null;
         int totalPoints = 0;
-
         bool loop = true;
         while (loop == true)
         {
@@ -28,7 +26,7 @@ class Program
                 
                 if (goalChoice == 1)
                 {
-                    newGoal = new SimpleGoal();
+                    Goal newGoal = new SimpleGoal();
                     Console.WriteLine();
                     Console.WriteLine(newGoal.CreateGoal());
                     goalsList.Add(newGoal);
@@ -36,7 +34,7 @@ class Program
 
                 else if (goalChoice == 2)
                 {
-                    newGoal = new EternalGoal();
+                    Goal newGoal = new EternalGoal();
                     Console.WriteLine();
                     Console.WriteLine(newGoal.CreateGoal());
                     goalsList.Add(newGoal);
@@ -133,9 +131,9 @@ class Program
 
             else if (userChoice == 4)
             {
-                //Load Goals
                 string filename = "goals.txt";
                 string[] lines = System.IO.File.ReadAllLines(filename);
+                Goal newGoal = null;
 
                 foreach (string line in lines)
                 {
@@ -195,7 +193,6 @@ class Program
 
             else if (userChoice == 5)
             {
-                //Record Event
                 int numberCounter = 1;
                 Console.WriteLine("The goals are:");
                 foreach (Goal goal in goalsList)
@@ -234,16 +231,9 @@ class Program
             }
 
             else
-            {
-                foreach (Goal goal in goalsList)
-                {
-                    Console.WriteLine(goal);
-                }
-                
+            {                
+                Console.WriteLine("Invalid Input.");           
             }
-
-
-
         }
     }
 }

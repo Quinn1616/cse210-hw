@@ -1,5 +1,5 @@
 50
-Simple Goal-crip-scrip-50-True
-Eternal Goal-church-church-100-False
-Checklist Goal-temple-temple-150-False-500-0-3
-Checklist Goal-fast-fast-150-False-1000-0-1
+Simple Goal-Scripture-Read the scriptures-50-True
+Eternal Goal-Church-Go to church-100-False
+Checklist Goal-Temple-Attend the temple-150-False-500-2-3
+Checklist Goal-Fast-Fast next month-150-False-1000-0-1

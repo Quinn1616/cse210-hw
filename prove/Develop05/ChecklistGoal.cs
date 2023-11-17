@@ -11,9 +11,8 @@ public class ChecklistGoal : Goal
         GoalName = Console.ReadLine();
         Console.Write("What is a short description of it? ");
         GoalDescription = Console.ReadLine();
-        //Console.Write("What is the amount of points associated with this goal? ");
-        //GoalPoints = Convert.ToInt32(Console.ReadLine());
-        GoalPoints = 150;
+        Console.Write("What is the amount of points associated with this goal? ");
+        GoalPoints = Convert.ToInt32(Console.ReadLine());
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
         GoalsNeeded = Convert.ToInt32(Console.ReadLine());
         Console.Write("What is the bonus for accomplishing it that many times? ");
@@ -27,22 +26,18 @@ public class ChecklistGoal : Goal
     public override int RecordEvent()
     {
         GoalProgress++;
-        int pointsEarned = 150;
         
         if (GoalProgress >= GoalsNeeded)
         {
-            pointsEarned = GoalPoints + BonusPoints;
-            Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+            Console.WriteLine($"Congratulations! You have earned {GoalPoints} points!");
             IsComplete = true;
         }
-
         else
         {
-            pointsEarned = GoalPoints;
-            Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+            Console.WriteLine($"Congratulations! You have earned {GoalPoints} points!");
         }
-
-        return pointsEarned;
+        
+        return GoalPoints;
     }
 
     public override bool IsGoalComplete()
